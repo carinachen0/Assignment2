@@ -136,7 +136,7 @@ function fillAll(){
         alert("table is empty")
         return;
     }
-    
+
     for (let i = 0; i < numRows; i++) {
         for (let j = 0; j < numCols; j++) {
             table.rows[i].cells[j].style.backgroundColor = colorSelected;
@@ -147,4 +147,16 @@ function fillAll(){
 // Clear all cells
 function clearAll(){
     //alert("Clicked Clear All"); // Replace this line with your code.
+    let table = document.getElementById("grid");
+
+    // base case: empty table
+    if (numCols == 0 || numRows == 0) {
+        alert("Table is empty. No cells to clear color.")
+    }
+
+    for (let i = 0; i < numRows; i++) {
+        for (let j = 0; j < numCols; j++) {
+            table.rows[i].cells[j].style.backgroundColor = "";
+        }
+    }
 }
