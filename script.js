@@ -42,11 +42,52 @@ function addC() {
 // Remove a row
 function removeR() {
     // alert("Clicked Remove Row"); // Replace this line with your code.
+    let table = document.getElementById("grid");
+    
+    if (table.rows.length == 0){
+        alert("There are no rows to delete");
+        return;
+    }
+
+    if (numRows > 0) {
+        table.deleteRow(numRows-1);
+        numRows--;
+    }
+
+    // Test case: resets numRows to 0 after delete entire table. 
+    // issue: add 3 row, add 3 col, remove all row, empty grid, add row.. still 3 row. should be 1 row
+    if (numRows == 1) {
+        numCols = 0; // resolved but brute force resetted the col count 
+    }
 }
 
 // Remove a column
 function removeC() {
     //alert("Clicked Remove Col"); // Replace this line with your code.
+        let table = document.getElementById("grid");
+
+    if(table.rows.length == 0){
+        alert("There is no columns to delete");
+        return;
+    }
+
+    // if at least one col left
+    if(numCols > 0 && numRows>0) {
+        if (numCols == 1) {
+            while (numRows > 0) {
+                table.deleteRow(numRows-1);
+                numRows--; 
+            }
+            numCols = 0;
+            return;
+        }
+
+        for (let i = 0; i < numRows; i++) {
+            let row = table.rows[i];
+            row.deleteCell(numCols-1);
+        }
+        numCols--;
+    }
 }
 
 // Set global variable for selected color
