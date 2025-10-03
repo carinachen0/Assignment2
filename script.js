@@ -30,6 +30,13 @@ function addR() {
 // Add a column
 function addC() {
     // alert("Clicked Add Col"); // Replace this line with your code.
+    let table = document.getElementById("grid");
+    for (let i = 0; i < numRows; i++) {
+        let currentRow = table.rows[i];
+        let newCell = currentRow.insertCell(numCols);
+        fillClickedCell(newCell); // attach click to fill color function
+    }
+    numCols++;
 }
 
 // Remove a row
