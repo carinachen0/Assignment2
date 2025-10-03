@@ -106,6 +106,22 @@ function fillClickedCell(cell) {
 // Fill all uncolored cells
 function fillU(){
     //alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    let table = document.getElementById("grid");
+
+    // base case: no cells in table to fill
+    if (numCols == 0 || numRows == 0) {
+        alert("table is empty")
+        return;
+    }
+
+    for (let i = 0; i < numRows; i++) {
+        for (let j = 0; j < numCols; j++) {
+            let cell = table.rows[i].cells[j];
+            if (cell.style.backgroundColor === "") {
+                cell.style.backgroundColor = colorSelected;
+            }
+        }
+    }
 }
 
 // Fill all cells
