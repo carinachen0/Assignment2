@@ -108,16 +108,17 @@ function fillU(){
     //alert("Clicked Fill All Uncolored"); // Replace this line with your code.
     let table = document.getElementById("grid");
 
-    // base case: no cells in table to fill
+    // base case: empty table, no cells in table to fill
     if (numCols == 0 || numRows == 0) {
         alert("table is empty")
         return;
     }
 
+    // otherwise, iterate through all rows and cols and if cell is unfilled, color it in with the selected color
     for (let i = 0; i < numRows; i++) {
         for (let j = 0; j < numCols; j++) {
             let cell = table.rows[i].cells[j];
-            if (cell.style.backgroundColor === "") {
+            if (cell.style.backgroundColor === "") { // cell is unfilled,  uncolored
                 cell.style.backgroundColor = colorSelected;
             }
         }
@@ -127,6 +128,20 @@ function fillU(){
 // Fill all cells
 function fillAll(){
     //alert("Clicked Fill All"); // Replace this line with your code.
+    // iterate thru entire grid and fill each cell with selected color
+    let table = document.getElementById("grid");
+
+    // base case: empty table, no cells in table to fill
+    if (numCols == 0 || numRows == 0) {
+        alert("table is empty")
+        return;
+    }
+    
+    for (let i = 0; i < numRows; i++) {
+        for (let j = 0; j < numCols; j++) {
+            table.rows[i].cells[j].style.backgroundColor = colorSelected;
+        }
+    }
 }
 
 // Clear all cells
