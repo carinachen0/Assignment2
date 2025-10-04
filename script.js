@@ -5,7 +5,6 @@ let colorSelected;
 
 // Add a row
 function addR() {
-    //alert("Clicked Add Row"); // Replace this line with your code.
     let table = document.getElementById("grid");
 
     // Base case: empty grid and create first cell
@@ -18,7 +17,7 @@ function addR() {
         return;
     }
 
-    // Add new row with same number as cells as currents columns
+    // Add new row with same number of cells as currents columns
     let row = table.insertRow(0);
     for (let i = 0; i < numCols; i++) {
         let cell = row.insertCell(i);
@@ -29,7 +28,6 @@ function addR() {
 
 // Add a column
 function addC() {
-    // alert("Clicked Add Col"); // Replace this line with your code.
     let table = document.getElementById("grid");
     for (let i = 0; i < numRows; i++) {
         let currentRow = table.rows[i];
@@ -41,7 +39,6 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    // alert("Clicked Remove Row"); // Replace this line with your code.
     let table = document.getElementById("grid");
     
     if (table.rows.length == 0){
@@ -63,16 +60,15 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    //alert("Clicked Remove Col"); // Replace this line with your code.
-        let table = document.getElementById("grid");
+    let table = document.getElementById("grid");
 
     if(table.rows.length == 0){
-        alert("There is no columns to delete");
+        alert("There are no columns to delete");
         return;
     }
 
-    // if at least one col left
-    if(numCols > 0 && numRows>0) {
+    // if there is at least one column left
+    if (numCols > 0 && numRows>0) {
         if (numCols == 1) {
             while (numRows > 0) {
                 table.deleteRow(numRows-1);
@@ -105,7 +101,6 @@ function fillClickedCell(cell) {
 
 // Fill all uncolored cells
 function fillU(){
-    //alert("Clicked Fill All Uncolored"); // Replace this line with your code.
     let table = document.getElementById("grid");
 
     // base case: empty table, no cells in table to fill
@@ -127,7 +122,6 @@ function fillU(){
 
 // Fill all cells
 function fillAll(){
-    //alert("Clicked Fill All"); // Replace this line with your code.
     // iterate thru entire grid and fill each cell with selected color
     let table = document.getElementById("grid");
 
@@ -146,7 +140,6 @@ function fillAll(){
 
 // Clear all cells
 function clearAll(){
-    //alert("Clicked Clear All"); // Replace this line with your code.
     let table = document.getElementById("grid");
 
     // base case: empty table
